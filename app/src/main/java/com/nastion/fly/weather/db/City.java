@@ -1,17 +1,12 @@
 package com.nastion.fly.weather.db;
 
-
 import org.litepal.crud.DataSupport;
-
-/**
- * Created by CHW on 2018/6/9.
- */
 
 public class City extends DataSupport {
     private int id;
     private String cityName;
     private int cityCode;
-    private int provinceId;
+    private int provinceId;//当前市所属的省的id
 
     public int getId() {
         return id;

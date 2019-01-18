@@ -2,14 +2,10 @@ package com.nastion.fly.weather.db;
 
 import org.litepal.crud.DataSupport;
 
-/**
- * Created by CHW on 2018/6/9.
- */
-
 public class County extends DataSupport {
     private int id;
     private String countyName;
-    private String weatherId;
+    private String weatherId;//县对应天气的id
     private int cityId;
 
     public int getId() {

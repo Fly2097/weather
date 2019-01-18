@@ -1,6 +1,5 @@
 package com.nastion.fly.weather;
 
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -31,10 +30,6 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-/**
- * Created by CHW on 2018/6/10.
- */
-
 public class ChooseAreaFragment extends Fragment {
     public static final int LEVEL_PROVINCE = 0;
     public static final int LEVEL_CITY = 1;
@@ -46,27 +41,27 @@ public class ChooseAreaFragment extends Fragment {
     private ArrayAdapter<String> adapter;
     private List<String> dataList = new ArrayList<>();
     /**
-     * sheng liebiao
+     * 省列表
      */
     private List<Province> provinceList;
     /**
-     * shi liebiao
+     * 市列表
      */
     private List<City> cityList;
     /**
-     * xian liebiao
+     * 县列表
      */
     private List<County> countyList;
     /**
-     * xuanzhong de shengfen
+     *选中的省份
      */
     private Province selectedProvince;
     /**
-     * xuanzhong de chengshi
+     * 选中的城市
      */
     private City selectedCity;
     /**
-     * dangqian xuanzhong de jibie
+     * 当前选中的级别
      */
     private int currentLevel;
 
@@ -111,7 +106,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * chaxun quanguo suoyoude sheng, youxian cong shujuku chuxun, ruguo meiyou chaxun dao zaiqu fuwuqi chaxun
+     * 查询全国所有的省，优先从数据库查询，如果没有到再去服务器上查询
      */
     private void queryProvinces() {
         titleText.setText("中国");
@@ -132,7 +127,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * chaxun xuanzhong shengnei suoyou de shi, youxian cong shujuku chuxun, ruguo meiyou chaxun dao zaiqu fuwuqi chaxun
+     * 查询省内所有的市，优先从数据库查询，如果没有到再去服务器上查询
      */
     private void queryCities() {
         titleText.setText(selectedProvince.getProvinceName());
@@ -154,7 +149,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * chaxun xuanzhong shinei suoyou de xian, youxian cong shujuku chuxun, ruguo meiyou chaxun dao zaiqu fuwuqi chaxun
+     * 查询市内所有的县，优先从数据库查询，如果没有到再去服务器上查询
      */
     private void queryCounties() {
         titleText.setText(selectedCity.getCityName());
@@ -177,7 +172,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * genju chuanru de dizhi he leixing cong fuwuqi shang chaxun shengshixian shuju
+     * 根据传入的地址和类型从服务器上查询省市县的数据
      */
     private void queryFromServer(String address, final String type) {
         showProgressDialog();
@@ -213,6 +208,7 @@ public class ChooseAreaFragment extends Fragment {
 
             @Override
             public void onFailure(Call call, IOException e) {
+                //通过runOnUiThread()方法回到主线程处理逻辑
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -225,7 +221,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * xianshi jindu duihuakuang
+     * 显示进度对话框
      */
     private void showProgressDialog() {
         if (progressDialog == null) {
@@ -237,7 +233,7 @@ public class ChooseAreaFragment extends Fragment {
     }
 
     /**
-     * guanbi jindu duihuakuang
+     * 关闭进度对话框
      */
     private void closeProgressDialog() {
         if (progressDialog != null) {

@@ -9,13 +9,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * Created by CHW on 2018/6/9.
- */
-
 public class Utility {
     /**
-     * jiexi he chuli fuwuqi fanhui de shengjishuju
+     * 解析和处理服务器返回的省级数据
      */
     public static boolean handProvinceResponse(String response){
         if(!TextUtils.isEmpty(response)){
@@ -37,7 +33,7 @@ public class Utility {
     }
 
     /**
-     * jiexi he chuli fuwuqi fanhui de shijishuju
+     * 解析和处理服务器返回的市级数据
      */
     public static boolean handCityResponse(String response, int provinceId){
         if(!TextUtils.isEmpty(response)){
@@ -60,7 +56,7 @@ public class Utility {
     }
 
     /**
-     * jiexi he chuli fuwuqi fanhui de xianjishuju
+     * 解析和处理服务器返回的县级数据
      */
     public static boolean handCountyResponse(String response, int cityId){
         if(!TextUtils.isEmpty(response)){

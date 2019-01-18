@@ -2,14 +2,10 @@ package com.nastion.fly.weather.db;
 
 import org.litepal.crud.DataSupport;
 
-/**
- * Created by CHW on 2018/6/9.
- */
-
 public class Province extends DataSupport {
     private int id;
     private String provinceName;
-    private int provinceCode;
+    private int provinceCode;//省代号
 
     public int getId() {
         return id;
